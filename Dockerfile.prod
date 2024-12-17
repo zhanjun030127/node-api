@@ -1,0 +1,8 @@
+FROM node:16
+WORKDIR /app
+RUN npm config set registry https://registry.npmmirror.com
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3007
+CMD ["npm", "run", "start"]
